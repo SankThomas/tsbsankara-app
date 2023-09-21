@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import { globals } from "../styles/globals";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HomeImages from "../components/HomeImages";
 import PortfolioImages from "../components/PortfolioImages";
+import BackButton from "../components/BackButton";
 
 export default function Portfolio({ navigation }) {
   return (
@@ -20,7 +20,8 @@ export default function Portfolio({ navigation }) {
         style={globals.scrollView}
       >
         <View style={globals.header}>
-          <Text style={globals.heading}>Portfolio</Text>
+          <BackButton navigation={navigation} />
+          <Text style={globals.title}>Portfolio</Text>
           <TouchableOpacity>
             <Image
               source={require("../assets/icon.png")}
@@ -34,5 +35,3 @@ export default function Portfolio({ navigation }) {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({});
