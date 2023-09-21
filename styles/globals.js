@@ -20,6 +20,12 @@ export const globals = StyleSheet.create({
     width: 50,
     borderRadius: 100,
   },
+  title: {
+    color: "#222",
+    fontSize: 18,
+    fontWeight: "bold",
+    textTransform: "capitalize",
+  },
   heading: {
     color: "#222",
     fontSize: 24,
