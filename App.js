@@ -24,7 +24,6 @@ export default function App() {
       <StatusBar style="dark" />
 
       <Stack.Navigator
-        initialRouteName="Home"
         screenOptions={{
           headerShown: false,
           gestureEnabled: true,
