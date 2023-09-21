@@ -9,6 +9,7 @@ import {
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globals } from "../styles/globals";
+import BackButton from "../components/BackButton";
 
 export default function About({ navigation }) {
   return (
@@ -18,7 +19,8 @@ export default function About({ navigation }) {
         style={globals.scrollView}
       >
         <View style={globals.header}>
-          <Text style={globals.heading}>About Me</Text>
+          <BackButton navigation={navigation} />
+          <Text style={globals.title}>About Me</Text>
           <TouchableOpacity>
             <Image
               source={require("../assets/icon.png")}
@@ -62,13 +64,6 @@ export default function About({ navigation }) {
             </View>
           </View>
         </View>
-
-        <TouchableOpacity
-          style={globals.buttonContainer}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={globals.button}>Back</Text>
-        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -76,8 +71,9 @@ export default function About({ navigation }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#F2F2F2",
+    backgroundColor: "#f2f2f2",
     borderRadius: 34,
+    marginBottom: 32,
   },
   textContainer: {
     padding: 24,
@@ -100,6 +96,11 @@ const styles = StyleSheet.create({
   icon: {
     width: 40,
     height: 40,
+    resizeMode: "contain",
+  },
+  image: {
+    height: 220,
+    width: "100%",
     resizeMode: "contain",
   },
 });
