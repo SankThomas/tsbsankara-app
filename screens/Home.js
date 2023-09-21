@@ -23,7 +23,7 @@ export default function Home({ navigation }) {
         style={globals.scrollView}
       >
         <View style={globals.header}>
-          <Text style={globals.heading}>Welcome</Text>
+          <Text style={globals.title}>Welcome</Text>
           <TouchableOpacity>
             <Image
               source={require("../assets/icon.png")}
