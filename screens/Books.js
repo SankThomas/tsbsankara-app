@@ -11,52 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import BackButton from "../components/BackButton";
 import { globals } from "../styles/globals";
-
-const items = [
-  {
-    path: "htmlcourse.png",
-    title: "HTML and CSS Course",
-    description:
-      "Learn modern web development using HTML5 semantics by building a Model Hotel Website and deploying it to the internet.",
-    runtime: "5hr 58mins",
-    price: "$19.99",
-    objectives: [
-      "Build a modern website",
-      "Deploy websites to the internet",
-      "Learn modern HTML5 Semantics",
-      "Learn moden web development practices",
-    ],
-    instructor: [
-      {
-        name: "Thomas Sankara",
-        imagepath: "author.png",
-        about:
-          "Front-end web developer with over 4 years experience in the modern web development scene, practicing ReactJs and TailwindCSS.",
-      },
-    ],
-  },
-  {
-    path: "reactjs.jpeg",
-    title: "20 ReactJs Projects",
-    description:
-      "Build 20 ReactJs Projects with increasing complexity and functionality. This is a beginner friendly course that you can learn at any level.",
-    runtime: "12hours",
-    price: "$94.99",
-    objectives: [
-      "Establish ReactJs fundamentals",
-      "Deploy React web apps to the internet",
-      "Learn best practices for React",
-    ],
-    instructor: [
-      {
-        name: "Thomas Sankara",
-        imagepath: "author.png",
-        about:
-          "Front-end web developer with over 4 years experience in the modern web development scene, practicing ReactJs and TailwindCSS.",
-      },
-    ],
-  },
-];
+import { books } from "../data/data";
 
 export default function Books({ navigation }) {
   return (
@@ -68,7 +23,7 @@ export default function Books({ navigation }) {
         <View style={globals.header}>
           <BackButton navigation={navigation} />
           <Text style={styles.title}>eBooks and Courses</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
               style={globals.icon}
@@ -81,10 +36,10 @@ export default function Books({ navigation }) {
         </Text>
 
         <View style={styles.cards}>
-          {items.map((item, index) => (
+          {books.map((book, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => navigation.navigate("SingleBooks", item)}
+              onPress={() => navigation.navigate("SingleBooks", book)}
             >
               <ImageBackground
                 borderRadius={30}
@@ -98,11 +53,11 @@ export default function Books({ navigation }) {
                   marginTop: 32,
                   marginBottom: 16,
                 }}
-                source={require(`../images/books/${item.path}`)}
+                source={{ uri: book.path }}
               >
-                <Text style={globals.imageTitle}>{item.title}</Text>
+                <Text style={globals.imageTitle}>{book.title}</Text>
               </ImageBackground>
-              <Text style={globals.text}>{item.description}</Text>
+              <Text style={globals.text}>{book.description}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -118,7 +73,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#222",
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "grotesk",
   },
   image: {
     height: 230,

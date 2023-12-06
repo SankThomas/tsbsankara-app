@@ -10,8 +10,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import BackButton from "../components/BackButton";
 import { globals } from "../styles/globals";
+import { PortableText } from "@portabletext/react-native";
 
-export default function Youtube({ navigation }) {
+export default function Blogpost({ navigation, route }) {
   return (
     <SafeAreaView style={globals.container}>
       <ScrollView
@@ -20,7 +21,16 @@ export default function Youtube({ navigation }) {
       >
         <View style={globals.header}>
           <BackButton navigation={navigation} />
-          <Text style={styles.title}>Contact Me</Text>
+
+          {route.params.title.length > 16 ? (
+            <Text style={globals.title}>{`${route.params.title.substring(
+              0,
+              16
+            )}...`}</Text>
+          ) : (
+            <Text style={globals.title}>{route.params.title}</Text>
+          )}
+
           <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
@@ -34,8 +44,22 @@ export default function Youtube({ navigation }) {
             marginBottom: 32,
           }}
         >
-          <Text style={[globals.heading, styles.heading]}>For enquiries</Text>
-          <Text style={[globals.text, styles.text]}>tsbsankara@gmail.com</Text>
+          {route.params.mainImage.asset.url && (
+            <Image
+              borderRadius={30}
+              style={styles.image}
+              source={{
+                uri: route.params.mainImage.asset.url,
+              }}
+            />
+          )}
+          <Text style={[globals.heading, styles.heading]}>
+            {route.params.title}
+          </Text>
+
+          <View>
+            <PortableText value={route.params.body} />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -51,10 +75,17 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   heading: {
-    textAlign: "center",
+    marginTop: 16,
   },
   text: {
-    textAlign: "center",
     marginTop: 16,
+  },
+  image: {
+    height: 230,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    resizeMode: "cover",
+    borderRadius: 20,
   },
 });

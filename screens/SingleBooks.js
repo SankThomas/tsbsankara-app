@@ -24,13 +24,13 @@ export default function SingleBooks({ navigation, route }) {
           {route.params.title.length > 16 ? (
             <Text style={globals.title}>{`${route.params.title.substring(
               0,
-              16,
+              16
             )}...`}</Text>
           ) : (
             <Text style={globals.title}>{route.params.title}</Text>
           )}
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
               style={globals.icon}
@@ -43,10 +43,7 @@ export default function SingleBooks({ navigation, route }) {
             marginBottom: 32,
           }}
         >
-          <Image
-            style={styles.image}
-            source={require(`../images/books/${route.params.path}`)}
-          />
+          <Image style={styles.image} source={{ uri: route.params.path }} />
           <Text style={[globals.heading, styles.title]}>
             {route.params.title}
           </Text>
@@ -83,14 +80,26 @@ export default function SingleBooks({ navigation, route }) {
 
           <TouchableOpacity
             onPress={() => navigation.navigate("About")}
-            style={{ marginTop: 16 }}
+            style={{
+              marginTop: 32,
+              backgroundColor: "#222",
+              padding: 16,
+              borderRadius: 16,
+            }}
           >
-            <Text style={[globals.title, styles.title]}>About the author</Text>
+            <Text style={[globals.title, styles.title, styles.lightText]}>
+              About the author
+            </Text>
             <Image
               source={require("../assets/icon.png")}
               style={[globals.icon, styles.icon]}
             />
-            <Text style={globals.text}>{route.params.instructor[0].about}</Text>
+            <Text style={[globals.title, styles.title, styles.lightText]}>
+              {route.params.instructor[0].name}
+            </Text>
+            <Text style={[globals.text, styles.lightText]}>
+              {route.params.instructor[0].about}
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -102,7 +111,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#222",
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "grotesk",
     marginTop: 16,
     marginBottom: 8,
   },
@@ -110,7 +119,6 @@ const styles = StyleSheet.create({
     height: 230,
     alignItems: "center",
     justifyContent: "center",
-    textAlign: "center",
     resizeMode: "cover",
     width: "100%",
     borderRadius: 20,
@@ -120,5 +128,8 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 16,
+  },
+  lightText: {
+    color: "#fff",
   },
 });

@@ -1,11 +1,4 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { globals } from "../styles/globals";
@@ -21,18 +14,14 @@ export default function About({ navigation }) {
         <View style={globals.header}>
           <BackButton navigation={navigation} />
           <Text style={globals.title}>About Me</Text>
-          <TouchableOpacity>
-            <Image
-              source={require("../assets/icon.png")}
-              style={globals.icon}
-            />
-          </TouchableOpacity>
         </View>
 
         <View style={styles.card}>
           <Image
             source={require("../images/about-profile.png")}
             style={styles.image}
+            borderTopLeftRadius={30}
+            borderTopRightRadius={30}
           />
 
           <View style={styles.textContainer}>
@@ -99,8 +88,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   image: {
-    height: 220,
+    height: 250,
     width: "100%",
-    resizeMode: "contain",
+    resizeMode: "cover",
   },
 });

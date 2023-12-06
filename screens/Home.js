@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
       >
         <View style={globals.header}>
           <Text style={globals.title}>Welcome</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
               style={globals.icon}

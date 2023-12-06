@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
@@ -24,13 +25,13 @@ export default function SinglePortfolio({ navigation, route }) {
           {route.params.title.length > 16 ? (
             <Text style={globals.title}>{`${route.params.title.substring(
               0,
-              16,
+              16
             )}...`}</Text>
           ) : (
             <Text style={globals.title}>{route.params.title}</Text>
           )}
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
               style={globals.icon}
@@ -42,7 +43,9 @@ export default function SinglePortfolio({ navigation, route }) {
           <Image
             borderRadius={30}
             style={styles.image}
-            source={require(`../images/portfolio/${route.params.path}`)}
+            source={{
+              uri: route.params.path,
+            }}
           />
           <Text style={[globals.title, styles.title]}>
             {route.params.title}
@@ -63,7 +66,6 @@ const styles = StyleSheet.create({
     height: 230,
     alignItems: "center",
     justifyContent: "center",
-    textAlign: "center",
     resizeMode: "cover",
     width: "100%",
     borderRadius: 20,

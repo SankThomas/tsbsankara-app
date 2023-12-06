@@ -22,7 +22,7 @@ export default function Portfolio({ navigation }) {
         <View style={globals.header}>
           <BackButton navigation={navigation} />
           <Text style={globals.title}>Portfolio</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
               style={globals.icon}
