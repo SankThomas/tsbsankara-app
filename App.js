@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
 
 // Screens
 import Home from "./screens/Home";
@@ -15,10 +18,30 @@ import SingleBooks from "./screens/SingleBooks";
 import SinglePortfolio from "./screens/SinglePortfolio";
 import SingleProject from "./screens/SingleProject";
 import Youtube from "./screens/Youtube";
+import Blogpost from "./screens/Blogpost";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    inter: require("./assets/fonts/Inter-Regular.ttf"),
+    grotesk: require("./assets/fonts/SpaceGrotesk-Bold.ttf"),
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+
+    prepare();
+  }, []);
+
+  if (!fontsLoaded) {
+    return undefined;
+  } else {
+    SplashScreen.hideAsync();
+  }
+
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
@@ -34,6 +57,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Blog" component={Blog} />
+        <Stack.Screen name="Blogpost" component={Blogpost} />
         <Stack.Screen name="SingleBlog" component={SingleBlog} />
         <Stack.Screen name="Books" component={Books} />
         <Stack.Screen name="SingleBooks" component={SingleBooks} />
