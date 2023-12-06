@@ -30,7 +30,7 @@ export default function HomeImages({ navigation }) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate("YouTube")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Youtube")}>
         <View>
           <ImageBackground
             borderRadius={30}
@@ -139,7 +139,7 @@ export default function HomeImages({ navigation }) {
             }}
             source={require("../images/contact.png")}
           >
-            <Text style={globals.imageTitle}>contact us</Text>
+            <Text style={globals.imageTitle}>contact me</Text>
           </ImageBackground>
         </View>
       </TouchableOpacity>
