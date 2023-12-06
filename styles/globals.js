@@ -23,18 +23,18 @@ export const globals = StyleSheet.create({
   title: {
     color: "#222",
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "grotesk",
     textTransform: "capitalize",
   },
   heading: {
     color: "#222",
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "grotesk",
   },
   imageTitle: {
     fontSize: 40,
     color: "#fff",
-    fontWeight: "bold",
+    fontFamily: "grotesk",
     textAlign: "center",
     textTransform: "capitalize",
   },
@@ -44,6 +44,7 @@ export const globals = StyleSheet.create({
   },
   text: {
     color: "#7e7e7e",
+    fontFamily: "inter",
     fontSize: 16,
     lineHeight: 30,
   },
@@ -55,6 +56,7 @@ export const globals = StyleSheet.create({
     color: "#fff",
     backgroundColor: "#222",
     fontSize: 16,
+    fontFamily: "grotesk",
     paddingVertical: 10,
     paddingHorizontal: 32,
     borderRadius: 3,
