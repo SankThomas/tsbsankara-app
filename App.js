@@ -9,16 +9,18 @@ import { useFonts } from "expo-font";
 import Home from "./screens/Home";
 import About from "./screens/About";
 import Blog from "./screens/Blog";
-import Books from "./screens/Books";
+import Courses from "./screens/Courses";
+import Course from "./screens/Course";
 import Contact from "./screens/Contact";
 import Portfolio from "./screens/Portfolio";
 import Projects from "./screens/Projects";
 import SingleBlog from "./screens/SingleBlog";
-import SingleBooks from "./screens/SingleBooks";
 import SinglePortfolio from "./screens/SinglePortfolio";
 import SingleProject from "./screens/SingleProject";
 import Youtube from "./screens/Youtube";
 import Blogpost from "./screens/Blogpost";
+import Books from "./screens/Books";
+import Book from "./screens/Book";
 
 const Stack = createNativeStackNavigator();
 
@@ -60,7 +62,9 @@ export default function App() {
         <Stack.Screen name="Blogpost" component={Blogpost} />
         <Stack.Screen name="SingleBlog" component={SingleBlog} />
         <Stack.Screen name="Books" component={Books} />
-        <Stack.Screen name="SingleBooks" component={SingleBooks} />
+        <Stack.Screen name="Book" component={Book} />
+        <Stack.Screen name="Courses" component={Courses} />
+        <Stack.Screen name="Course" component={Course} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Portfolio" component={Portfolio} />
         <Stack.Screen name="SinglePortfolio" component={SinglePortfolio} />
