@@ -33,11 +33,7 @@ export default function PortfolioImages({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#f2f2f2",
-    padding: 8,
-    borderRadius: 20,
-  },
+  card: {},
   title: {
     marginTop: 16,
     marginBottom: 8,
