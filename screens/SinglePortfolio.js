@@ -18,6 +18,9 @@ export default function SinglePortfolio({ navigation, route }) {
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={globals.scrollView}
+        contentContainerStyle={{
+          paddingBottom: 32,
+        }}
       >
         <View style={globals.header}>
           <BackButton navigation={navigation} />
