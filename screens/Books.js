@@ -4,7 +4,6 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
-  ImageBackground,
   Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -22,7 +21,7 @@ export default function Books({ navigation }) {
       >
         <View style={globals.header}>
           <BackButton navigation={navigation} />
-          <Text style={styles.title}>eBooks and Courses</Text>
+          <Text style={styles.title}>Books</Text>
           <TouchableOpacity onPress={() => navigation.navigate("About")}>
             <Image
               source={require("../assets/icon.png")}
@@ -39,24 +38,22 @@ export default function Books({ navigation }) {
           {books.map((book, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => navigation.navigate("SingleBooks", book)}
+              onPress={() => navigation.navigate("Book", book)}
             >
-              <ImageBackground
+              <Image
                 borderRadius={30}
                 style={{
                   height: 230,
                   alignItems: "center",
                   justifyContent: "center",
-                  textAlign: "center",
                   resizeMode: "cover",
                   width: "100%",
                   marginTop: 32,
                   marginBottom: 16,
                 }}
                 source={{ uri: book.path }}
-              >
-                <Text style={globals.imageTitle}>{book.title}</Text>
-              </ImageBackground>
+              />
+              <Text style={globals.title}>{book.title}</Text>
               <Text style={globals.text}>{book.description}</Text>
             </TouchableOpacity>
           ))}
