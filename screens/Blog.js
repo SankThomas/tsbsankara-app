@@ -79,7 +79,9 @@ export default function Blog({ navigation }) {
                   style={styles.image}
                 />
               )}
-              <Text style={globals.heading}>{post.title}</Text>
+              <Text style={globals.heading} className="mt-2">
+                {post.title}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
